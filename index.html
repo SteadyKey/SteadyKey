@@ -4,29 +4,144 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SteadyKey — ダウンロード</title>
-  <link rel="stylesheet" href="download.css" />
+  <meta name="description" content="SteadyKey ダウンロードページ。ローカル専用パスワードボルト（PIN + Machine Key + AES-256）。" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --muted:#9fb0c8;
+      --text:#e6eef6;
+      --glass: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#071021 0%,var(--bg) 100%);
+      color:var(--text);
+      padding:28px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{
+      max-width:920px;
+      margin:0 auto;
+    }
+    header.header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .logoWrap{
+      width:72px;
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--glass);
+      border-radius:12px;
+      flex:0 0 72px;
+      cursor:pointer;
+      transition:transform .12s ease;
+    }
+    .logoWrap:hover{ transform:translateY(-3px) }
+    .headerText h1{
+      margin:0;
+      font-size:24px;
+      line-height:1;
+    }
+    .tagline{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .card{
+      background:rgba(255,255,255,0.02);
+      border-radius:12px;
+      padding:18px;
+      margin-top:18px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.6);
+    }
+    .card h2{ margin:0 0 8px 0; font-size:18px }
+    .actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:10px 14px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      background:var(--accent);
+      color:#042027;
+      box-shadow:0 6px 14px rgba(6,182,212,0.08);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .link{
+      color:var(--muted);
+      text-decoration:underline;
+      font-size:14px;
+    }
+    .note{ color:var(--muted); margin-top:12px; font-size:13px }
+    ol{ padding-left:18px; margin:8px 0 0 0 }
+    li{ margin:8px 0; color:var(--muted) }
+    .warning{
+      background:rgba(255,0,0,0.04);
+      border-left:4px solid rgba(255,0,0,0.18);
+      padding:10px;
+      margin-top:12px;
+      color:#ffd6d6;
+      border-radius:6px;
+    }
+    .footer{ margin-top:18px; color:var(--muted); font-size:13px }
+    .small{ font-size:13px; color:var(--muted) }
+    @media (max-width:520px){
+      .header{ flex-direction:column; align-items:flex-start; gap:8px }
+      .logoWrap{ width:64px; height:64px }
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <header class="header">
-      <h1>SteadyKey</h1>
-      <p class="tagline">ローカル専用のパスワードボルト — PIN + Machine Key + AES-256</p>
+  <main class="container" role="main">
+    <header class="header" aria-label="SteadyKey header">
+      <!-- Inline SVG logo wrapped in a link to the repository -->
+      <a id="repoLink" class="logoWrap" href="https://github.com/SteadyKey/SteadyKey/" target="_blank" rel="noopener noreferrer" aria-label="Open SteadyKey repository (opens in new tab)">
+        <!-- Embedded SVG (user-provided) -->
+        <svg width="48" height="48" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="false">
+          <path d="M56.7937 84.9688C44.4187 83.4688 35.7 74.5625 35.7 63.0313C35.7 58.3438 37.3875 53.2813 40.2 49.9063C38.9812 46.8125 39.1687 40.25 40.575 37.5313C44.325 37.0625 49.3875 39.0313 52.3875 41.75C55.95 40.625 59.7 40.0625 64.2937 40.0625C68.8875 40.0625 72.6375 40.625 76.0125 41.6563C78.9187 39.0313 84.075 37.0625 87.825 37.5313C89.1375 40.0625 89.325 46.625 88.1062 49.8125C91.1062 53.375 92.7 58.1563 92.7 63.0313C92.7 74.5625 83.9812 83.2813 71.4187 84.875C74.6062 86.9375 76.7625 91.4375 76.7625 96.5938L76.7625 106.344C76.7625 109.156 79.1062 110.75 81.9187 109.625C98.8875 103.156 112.2 86.1875 112.2 65.1875C112.2 38.6563 90.6375 17 64.1062 17C37.575 17 16.2 38.6562 16.2 65.1875C16.2 86 29.4187 103.25 47.2312 109.719C49.7625 110.656 52.2 108.969 52.2 106.438L52.2 98.9375C50.8875 99.5 49.2 99.875 47.7 99.875C41.5125 99.875 37.8562 96.5 35.2312 90.2188C34.2 87.6875 33.075 86.1875 30.9187 85.9063C29.7937 85.8125 29.4187 85.3438 29.4187 84.7813C29.4187 83.6563 31.2937 82.8125 33.1687 82.8125C35.8875 82.8125 38.2312 84.5 40.6687 87.9688C42.5437 90.6875 44.5125 91.9063 46.8562 91.9063C49.2 91.9063 50.7 91.0625 52.8562 88.9063C54.45 87.3125 55.6687 85.9063 56.7937 84.9688Z" fill="black"/>
+        </svg>
+      </a>
+
+      <div class="headerText">
+        <h1>SteadyKey</h1>
+        <p class="tagline">ローカル専用のパスワードボルト — PIN + Machine Key + AES-256</p>
+      </div>
     </header>
 
-    <section class="card">
-      <h2>ダウンロード</h2>
-      <p>以下のボタンを押すと、リリースアーカイブを新しいタブで開きます。ダウンロードはブラウザのダウンロード機能で行ってください。</p>
+    <section class="card" aria-labelledby="downloadTitle">
+      <h2 id="downloadTitle">ダウンロード</h2>
+      <p class="small">以下のボタンを押すと、リリースアーカイブを新しいタブで開きます。ダウンロードはブラウザのダウンロード機能で行ってください。</p>
 
-      <div class="actions">
-        <button id="downloadBtn" class="btn primary">SteadyKey v1.0.0 をダウンロード</button>
-        <a id="directLink" class="link" href="https://github.com/SteadyKey/SteadyKey/releases/download/v1.0.0/SteadyKey.zip" target="_blank" rel="noopener noreferrer">直接リンクを開く</a>
+      <div class="actions" role="group" aria-label="Download actions">
+        <button id="downloadBtn" class="btn" type="button">SteadyKey v1.0.0 をダウンロード</button>
+        <a id="directLink" class="btn secondary" href="https://github.com/SteadyKey/SteadyKey/releases/download/v1.0.0/SteadyKey.zip" target="_blank" rel="noopener noreferrer">直接リンクを開く</a>
       </div>
 
       <p class="note">※ ZIP をダウンロード後、展開して Chrome の「拡張機能」から読み込んでください。詳しい手順は下の「インストール手順」をご覧ください。</p>
     </section>
 
-    <section class="card">
-      <h2>インストール手順</h2>
+    <section class="card" aria-labelledby="installTitle">
+      <h2 id="installTitle">インストール手順</h2>
       <ol>
         <li>ダウンロードボタンで ZIP を取得し、任意のフォルダに展開してください。</li>
         <li>Chrome を開き、<strong>chrome://extensions/</strong> にアクセスします。</li>
@@ -34,13 +149,16 @@
         <li>展開したフォルダ内の <strong>dist</strong> フォルダ（または展開先のルート）を選択して読み込みます。</li>
         <li>拡張機能アイコンをクリックして SteadyKey を起動し、初回は Machine Key が生成されます。</li>
       </ol>
-      <p class="warning"><strong>注意</strong>：拡張機能をアンインストールすると Machine Key が消え、保存済みデータは復号不能になります。バックアップが必要な場合はエクスポート機能を利用してください（将来的な機能）。</p>
+
+      <div class="warning" role="alert">
+        <strong>注意</strong>：拡張機能をアンインストールすると Machine Key が消え、保存済みデータは復号不能になります。バックアップが必要な場合はエクスポート機能を利用してください（将来的な機能）。
+      </div>
     </section>
 
-    <section class="card small">
-      <h3>サポート</h3>
+    <section class="card small" aria-labelledby="supportTitle">
+      <h2 id="supportTitle">サポート</h2>
       <p>不具合や改善提案は GitHub リポジトリの Issues にお願いします。</p>
-      <p><a href="https://github.com/SteadyKey/SteadyKey" target="_blank" rel="noopener noreferrer">https://github.com/SteadyKey/SteadyKey</a></p>
+      <p><a class="link" href="https://github.com/SteadyKey/SteadyKey" target="_blank" rel="noopener noreferrer">https://github.com/SteadyKey/SteadyKey</a></p>
     </section>
 
     <footer class="footer">
@@ -48,6 +166,46 @@
     </footer>
   </main>
 
-  <script src="download.js"></script>
+  <script>
+    (function () {
+      const RELEASE_URL = "https://github.com/SteadyKey/SteadyKey/releases/download/v1.0.0/SteadyKey.zip";
+      const REPO_URL = "https://github.com/SteadyKey/SteadyKey/";
+
+      function openInNewTab(url) {
+        try {
+          const w = window.open(url, "_blank", "noopener,noreferrer");
+          if (w) w.focus();
+          else window.location.href = url;
+        } catch (e) {
+          window.location.href = url;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const downloadBtn = document.getElementById("downloadBtn");
+        const directLink = document.getElementById("directLink");
+        const repoLink = document.getElementById("repoLink");
+
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            openInNewTab(RELEASE_URL);
+          });
+        }
+
+        if (directLink) {
+          directLink.setAttribute("href", RELEASE_URL);
+        }
+
+        if (repoLink) {
+          // Ensure repo link points to repo and opens in new tab (already set in markup).
+          repoLink.setAttribute("href", REPO_URL);
+          repoLink.addEventListener("click", (ev) => {
+            // allow default behavior; this handler ensures analytics or custom behavior could be added later
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
