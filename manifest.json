@@ -9,5 +9,5 @@
   },
   "action": {
     "default_popup": "dist/ui/popup.html"
-  },
+  }
 }
