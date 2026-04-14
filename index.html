@@ -5,111 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SteadyKey — ダウンロード</title>
   <meta name="description" content="SteadyKey ダウンロードページ。ローカル専用パスワードボルト（PIN + Machine Key + AES-256）。" />
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#06b6d4;
-      --muted:#9fb0c8;
-      --text:#e6eef6;
-      --glass: rgba(255,255,255,0.02);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,#071021 0%,var(--bg) 100%);
-      color:var(--text);
-      padding:28px;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    .container{
-      max-width:920px;
-      margin:0 auto;
-    }
-    header.header{
-      display:flex;
-      gap:16px;
-      align-items:center;
-    }
-    .logoWrap{
-      width:72px;
-      height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--glass);
-      border-radius:12px;
-      flex:0 0 72px;
-      cursor:pointer;
-      transition:transform .12s ease;
-    }
-    .logoWrap:hover{ transform:translateY(-3px) }
-    .headerText h1{
-      margin:0;
-      font-size:24px;
-      line-height:1;
-    }
-    .tagline{
-      margin:6px 0 0 0;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .card{
-      background:rgba(255,255,255,0.02);
-      border-radius:12px;
-      padding:18px;
-      margin-top:18px;
-      box-shadow:0 6px 18px rgba(2,6,23,0.6);
-    }
-    .card h2{ margin:0 0 8px 0; font-size:18px }
-    .actions{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-top:12px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      padding:10px 14px;
-      border-radius:8px;
-      border:none;
-      cursor:pointer;
-      font-weight:600;
-      background:var(--accent);
-      color:#042027;
-      box-shadow:0 6px 14px rgba(6,182,212,0.08);
-    }
-    .btn.secondary{
-      background:transparent;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.04);
-    }
-    .link{
-      color:var(--muted);
-      text-decoration:underline;
-      font-size:14px;
-    }
-    .note{ color:var(--muted); margin-top:12px; font-size:13px }
-    ol{ padding-left:18px; margin:8px 0 0 0 }
-    li{ margin:8px 0; color:var(--muted) }
-    .warning{
-      background:rgba(255,0,0,0.04);
-      border-left:4px solid rgba(255,0,0,0.18);
-      padding:10px;
-      margin-top:12px;
-      color:#ffd6d6;
-      border-radius:6px;
-    }
-    .footer{ margin-top:18px; color:var(--muted); font-size:13px }
-    .small{ font-size:13px; color:var(--muted) }
-    @media (max-width:520px){
-      .header{ flex-direction:column; align-items:flex-start; gap:8px }
-      .logoWrap{ width:64px; height:64px }
-    }
-  </style>
+  <link rel="stylesheet" href="download.css" />
 </head>
 <body>
   <main class="container" role="main">
@@ -198,11 +94,7 @@
         }
 
         if (repoLink) {
-          // Ensure repo link points to repo and opens in new tab (already set in markup).
           repoLink.setAttribute("href", REPO_URL);
-          repoLink.addEventListener("click", (ev) => {
-            // allow default behavior; this handler ensures analytics or custom behavior could be added later
-          });
         }
       });
     })();
