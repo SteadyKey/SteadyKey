@@ -1,0 +1,14 @@
+{
+  "name": "asahi-password-vault",
+  "version": "1.0.0",
+  "description": "Local-only password vault: PIN + MachineKey + AES-256 (TypeScript source)",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch",
+    "lint": "echo \"Add linting if desired\""
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
