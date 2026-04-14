@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SteadyKey — ダウンロード</title>
+  <link rel="stylesheet" href="download.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>SteadyKey</h1>
+      <p class="tagline">ローカル専用のパスワードボルト — PIN + Machine Key + AES-256</p>
+    </header>
+
+    <section class="card">
+      <h2>ダウンロード</h2>
+      <p>以下のボタンを押すと、リリースアーカイブを新しいタブで開きます。ダウンロードはブラウザのダウンロード機能で行ってください。</p>
+
+      <div class="actions">
+        <button id="downloadBtn" class="btn primary">SteadyKey v1.0.0 をダウンロード</button>
+        <a id="directLink" class="link" href="https://github.com/SteadyKey/SteadyKey/releases/download/v1.0.0/SteadyKey.zip" target="_blank" rel="noopener noreferrer">直接リンクを開く</a>
+      </div>
+
+      <p class="note">※ ZIP をダウンロード後、展開して Chrome の「拡張機能」から読み込んでください。詳しい手順は下の「インストール手順」をご覧ください。</p>
+    </section>
+
+    <section class="card">
+      <h2>インストール手順</h2>
+      <ol>
+        <li>ダウンロードボタンで ZIP を取得し、任意のフォルダに展開してください。</li>
+        <li>Chrome を開き、<strong>chrome://extensions/</strong> にアクセスします。</li>
+        <li>右上の「デベロッパーモード」を有効にし、「パッケージ化されていない拡張機能を読み込む」をクリック。</li>
+        <li>展開したフォルダ内の <strong>dist</strong> フォルダ（または展開先のルート）を選択して読み込みます。</li>
+        <li>拡張機能アイコンをクリックして SteadyKey を起動し、初回は Machine Key が生成されます。</li>
+      </ol>
+      <p class="warning"><strong>注意</strong>：拡張機能をアンインストールすると Machine Key が消え、保存済みデータは復号不能になります。バックアップが必要な場合はエクスポート機能を利用してください（将来的な機能）。</p>
+    </section>
+
+    <section class="card small">
+      <h3>サポート</h3>
+      <p>不具合や改善提案は GitHub リポジトリの Issues にお願いします。</p>
+      <p><a href="https://github.com/SteadyKey/SteadyKey" target="_blank" rel="noopener noreferrer">https://github.com/SteadyKey/SteadyKey</a></p>
+    </section>
+
+    <footer class="footer">
+      <small>© SteadyKey</small>
+    </footer>
+  </main>
+
+  <script src="download.js"></script>
+</body>
+</html>
