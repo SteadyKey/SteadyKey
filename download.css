@@ -6,6 +6,7 @@
   --text:#e6eef6;
   --glass: rgba(255,255,255,0.02);
   --danger: rgba(255,0,0,0.06);
+  --disabled: rgba(255,255,255,0.03);
 }
 
 *{box-sizing:border-box}
@@ -96,11 +97,17 @@ body{
   justify-content:center;
 }
 
-.btn.secondary{
-  background:transparent;
-  color:var(--muted);
-  border:1px solid rgba(255,255,255,0.04);
+.btn.disabled{
+  background:var(--disabled);
+  color:rgba(255,255,255,0.5);
+  cursor:not-allowed;
   box-shadow:none;
+}
+
+.linkWrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
 .link{
